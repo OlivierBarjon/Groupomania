@@ -1,18 +1,21 @@
 <template>
   <div class="home">
     <img alt="Vue logo" src="../assets/logo-groupomania.png">
-    <Information msg="A propos de ce site"/>
+    <Information msg="Page d'inscription"/>
+    <SignupForm />
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
 import Information from '@/components/Information.vue'
+import SignupForm from '@/components/SignupForm.vue'
 
 export default {
-  name: 'About',
+  name: 'Signup',
   components: {
-    Information
+    Information,
+    SignupForm
   }
 }
 </script>
