@@ -1,5 +1,7 @@
 # groupomania
 
+OC - Projet 7 - frontend
+
 ## Project setup
 ```
 npm install
