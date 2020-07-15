@@ -2,7 +2,7 @@
   <div class="home">
     <img alt="Vue logo" src="../assets/logo-groupomania.png">
     <Information msg="Page d'inscription"/>
-    <SignupForm />
+    <SignupForm @inscription="setInscription" />
   </div>
 </template>
 
@@ -16,6 +16,14 @@ export default {
   components: {
     Information,
     SignupForm
-  }
+  },
+  methods: {
+    setInscription(payload) {
+      console.log(payload.username);
+    }
+  },
+
+  
+  
 }
 </script>
