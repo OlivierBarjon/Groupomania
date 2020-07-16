@@ -1,50 +1,60 @@
 <template>
-  <div id="blocForm">
+  <b-container fluid="sm">
+    <b-row align-v="center">
+      <b-col></b-col>
+      <b-col>
+      <b-form @submit="onSubmit" v-if="show">
+        <b-form-group id="input-group-1" label="Email :" label-for="input-1">
+          <b-form-input
+            id="input-1"
+            v-model="form.email"
+            type="email"
+            required
+            placeholder="Votre adresse Email"
+          ></b-form-input>
+        </b-form-group>
 
+        <b-form-group id="input-group-2" label="Mot de passe :" label-for="input-2">
+          <b-form-input
+            id="input-2"
+            v-model="form.password"
+            type="password"
+            required
+            placeholder="Votre mot de passe"
+          ></b-form-input>
+        </b-form-group>
 
-        <form id="form">
-          <div>
-
-            <div>
-              <label for="email">Email :</label>
-              <input type="email" name="email" id="email" pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required /><!-- regEx : commence par au moins un chiffre, lettre, point, underscore, modulo, plus, moins ; suivi d'un arobase ; suivi d'au moins une lettre, un chiffre, un point, un tiret suivi d'un point suivi (et pour finir) d'au moins 2 lettres-->
-            </div>
-
-            <div>
-              <label for="password">Mot de passe :</label>
-              <input type="password" name="password" id="password" pattern="[A-Za-z0-9]{2,}" required /><!-- regEx : chiffre ou lettre, au minimum 2 -->
-            </div>
-
-            <div>
-              <button type="submit" id="submitBtn">Se connecter</button>
-            </div>
-
-          </div>  
-        </form>
-               
-      </div>
+        <p></p>
+        <b-button type="submit" variant="dark">Connexion</b-button>
+      </b-form>
+      </b-col>
+      <b-col></b-col>
+    </b-row>
+  </b-container>
 </template>
 
 <script>
 export default {
-  name: 'Signin-form',
-}
+  name: "Signin-form",
+  data() {
+    return {
+      form: {
+        email: "",
+        password: ""
+      },
+      show: true
+    };
+  },
+  methods: {
+    onSubmit(evt) {
+      evt.preventDefault();
+      alert(JSON.stringify(this.form));
+    }
+  }
+};
 </script>
+
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
-h3 {
-  margin: 40px 0 0;
-}
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: #42b983;
-}
 </style>
