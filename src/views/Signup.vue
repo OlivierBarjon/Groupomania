@@ -19,7 +19,7 @@ export default {
   },
   methods: {
     setInscription(payload) {
-      console.log(payload.username);
+      console.log(payload.username);///////////////////// REQUETE ??
     }
   },
 
