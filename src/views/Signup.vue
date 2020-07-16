@@ -1,9 +1,12 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo-groupomania.png">
-    <Information msg="Page d'inscription"/>
-    <SignupForm @inscription="setInscription" />
-  </div>
+  <b-container fluid="sm">
+    <b-row align-v="center">
+      <b-col><Information msg="Page de connexion" /></b-col>
+    </b-row>
+    <b-row align-v="center">
+      <b-col><SignupForm @inscription="setInscription" /></b-col>
+    </b-row>
+  </b-container>
 </template>
 
 <script>

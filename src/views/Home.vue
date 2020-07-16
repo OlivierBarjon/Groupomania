@@ -1,18 +1,19 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo-groupomania.png">
-    <Information msg="Bienvenue chez Grouporama"/>
-  </div>
+  <b-container fluid="sm">
+    <b-row align-v="center">
+      <b-col><Information msg="Bienvenue chez Grouporama" /></b-col>
+    </b-row>
+  </b-container>
 </template>
 
 <script>
 // @ is an alias to /src
-import Information from '@/components/Information.vue'
+import Information from "@/components/Information.vue";
 
 export default {
-  name: 'Home',
+  name: "Home",
   components: {
     Information
   }
-}
+};
 </script>

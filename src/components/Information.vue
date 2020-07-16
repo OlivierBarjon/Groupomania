@@ -1,5 +1,6 @@
 <template>
   <div class="hello">
+    
     <h1>{{ msg }}</h1>
     <p>
       Votre réseau social d'entreprise rien que pour vous.

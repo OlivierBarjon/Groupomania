@@ -1,8 +1,9 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo-groupomania.png">
-    <Information msg="A propos de ce site"/>
-  </div>
+  <b-container fluid="sm">
+    <b-row align-v="center">
+      <b-col><Information msg="À propos de ce site" /></b-col>
+    </b-row>
+  </b-container>
 </template>
 
 <script>
