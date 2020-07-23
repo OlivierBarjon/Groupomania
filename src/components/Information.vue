@@ -3,7 +3,7 @@
     
     <h1>{{ msg }}</h1>
     <p>
-      Votre réseau social d'entreprise rien que pour vous.
+      Votre réseau social d'entreprise.
     </p>
   </div>
 </template>

@@ -11,8 +11,10 @@
         <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
 
         <b-collapse id="nav-collapse" is-nav>
-          <b-navbar-nav>
-            <b-nav-item>poster un article</b-nav-item>
+          <b-navbar-nav class="ml-auto">
+            <b-nav-item>
+              <router-link to="/new-article">Poster un article</router-link>
+            </b-nav-item>
             <b-nav-item>
               <router-link to="/about">À propos</router-link>
             </b-nav-item>
@@ -23,7 +25,7 @@
             <b-nav-item-dropdown right>
               <!-- Using 'button-content' slot -->
               <template v-slot:button-content>
-                <em>Utilisateur</em>
+                Utilisateur
               </template>
               <b-dropdown-item>
                 <router-link to="/signin">Se connecter</router-link>
@@ -36,7 +38,7 @@
         </b-collapse>
       </b-navbar>
     </div>
-    
+
     <!-- router-view -->
     <router-view />
   </div>
@@ -60,8 +62,8 @@
     /* color: #ffffff; */
 
     &.router-link-exact-active {
-      /* color: #ffffff;
-      background-color: aqua; */
+      color: #ffffff;
+      /*background-color: aqua; */
     }
   }
 }

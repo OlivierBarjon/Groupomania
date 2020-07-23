@@ -2,27 +2,26 @@
   <b-form @submit="onSubmit" @reset="onReset" v-if="show">
     <b-form-group
       id="input-group-1"
-      label="Email:"
+      label="Title:"
       label-for="input-1"
-      description="Nous ne partagerons votre adresse mail avec personne.."
       label-cols-sm="auto"
     >
       <b-form-input
         id="input-1"
-        v-model="form.email"
-        type="email"
+        v-model="form.title"
+        type="text"
         required
-        placeholder="Votre Email"
+        placeholder="Titre de l'article"
       ></b-form-input>
     </b-form-group>
 
-    <b-form-group id="input-group-2" label="Pseudo :" label-for="input-2" label-cols-sm="auto">
+    <b-form-group id="input-group-2" label="Votre texte :" label-for="input-2" label-cols-sm="auto">
       <b-form-input
         id="input-2"
-        v-model="form.username"
+        v-model="form.text"
         type="text"
         required
-        placeholder="Votre nom d'utilisateur ou votre pseudo"
+        placeholder="Votre article"
       ></b-form-input>
     </b-form-group>
 
@@ -36,16 +35,7 @@
       ></b-form-input>
     </b-form-group>
 
-    <!-- <b-form-group id="input-group-4" label="" label-for="input-4">
-      <b-form-checkbox
-        id="input-4"
-        v-model="form.isAdmin"
-        value="true"
-        unchecked-value="false"
-      >Cochez la case ci-contre si vous souhaitez être modérateur</b-form-checkbox>
-    </b-form-group> -->
-
-    <b-button type="submit" variant="dark">Inscription</b-button>
+    <b-button type="submit" variant="dark">Envoyer</b-button>
     <b-button type="reset" variant="danger">Effacer</b-button>
   </b-form>
 </template>
@@ -55,10 +45,9 @@ export default {
   data() {
     return {
       form: {
-        email: "",
-        username: "",
-        password: ""/* ,
-        isAdmin: false */
+        title: "",
+        text: "",
+        password: ""
       },
       show: true
     };

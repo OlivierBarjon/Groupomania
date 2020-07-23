@@ -1,10 +1,10 @@
 <template>
   <b-container fluid="sm">
     <b-row align-v="center">
-      <b-col><Information msg="Page d'inscription" /></b-col>
+      <b-col><Information msg="Postez un nouvel article" /></b-col>
     </b-row>
     <b-row align-v="center">
-      <b-col><SignupForm @inscription="setInscription" /></b-col>
+      <b-col><NewArticleForm @inscription="setInscription" /></b-col>
     </b-row>
   </b-container>
 </template>
@@ -12,21 +12,18 @@
 <script>
 // @ is an alias to /src
 import Information from '@/components/Information.vue'
-import SignupForm from '@/components/SignupForm.vue'
+import NewArticleForm from '@/components/NewArticleForm.vue'
 
 export default {
-  name: 'Signup',
+  name: 'NewArticle',
   components: {
     Information,
-    SignupForm
+    NewArticleForm
   },
   methods: {
     setInscription(payload) {
-      alert(payload.username);///////////////////// REQUETE ??
+      alert(payload.username);
     }
   },
-
-  
-  
 }
 </script>

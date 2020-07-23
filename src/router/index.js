@@ -4,6 +4,7 @@ import Home from '../views/Home.vue'
 import Signup from '../views/Signup.vue'
 import Signin from '../views/Signin.vue'
 import About from '../views/About.vue'
+import NewArticle from '../views/NewArticle.vue'
 
 Vue.use(VueRouter)
 
@@ -27,7 +28,12 @@ Vue.use(VueRouter)
     path: '/about',
     name: 'About',
     component: About
-  }
+  },
+  {
+    path: '/new-article',
+    name: 'NewArticle',
+    component: NewArticle
+  },
 ]
 
 const router = new VueRouter({

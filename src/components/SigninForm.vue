@@ -1,36 +1,33 @@
 <template>
-  <b-container fluid="sm">
-    <b-row align-v="center">
-      <b-col></b-col>
-      <b-col>
-      <b-form @submit="onSubmit" v-if="show">
-        <b-form-group id="input-group-1" label="Email :" label-for="input-1">
-          <b-form-input
-            id="input-1"
-            v-model="form.email"
-            type="email"
-            required
-            placeholder="Votre adresse Email"
-          ></b-form-input>
-        </b-form-group>
+  <b-form @submit="onSubmit" v-if="show">
+    <b-form-group id="input-group-1" label="Email :" label-for="input-1" label-cols-sm="auto">
+      <b-form-input
+        id="input-1"
+        v-model="form.email"
+        type="email"
+        required
+        placeholder="Votre adresse Email"
+      ></b-form-input>
+    </b-form-group>
 
-        <b-form-group id="input-group-2" label="Mot de passe :" label-for="input-2">
-          <b-form-input
-            id="input-2"
-            v-model="form.password"
-            type="password"
-            required
-            placeholder="Votre mot de passe"
-          ></b-form-input>
-        </b-form-group>
+    <b-form-group
+      id="input-group-2"
+      label="Mot de passe :"
+      label-for="input-2"
+      label-cols-sm="auto"
+    >
+      <b-form-input
+        id="input-2"
+        v-model="form.password"
+        type="password"
+        required
+        placeholder="Votre mot de passe"
+      ></b-form-input>
+    </b-form-group>
 
-        <p></p>
-        <b-button type="submit" variant="dark">Connexion</b-button>
-      </b-form>
-      </b-col>
-      <b-col></b-col>
-    </b-row>
-  </b-container>
+    <p></p>
+    <b-button type="submit" variant="dark">Connexion</b-button>
+  </b-form>
 </template>
 
 <script>
@@ -48,7 +45,10 @@ export default {
   methods: {
     onSubmit(evt) {
       evt.preventDefault();
-      alert(JSON.stringify(this.form));
+      const request = new XMLHttpRequest();
+      request.open("POST", "http://localhost:3000/api/auth/signin");
+      request.setRequestHeader("Content-Type", "application/json");
+      request.send(JSON.stringify(this.form));
     }
   }
 };
