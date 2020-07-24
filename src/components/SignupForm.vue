@@ -77,7 +77,7 @@ export default {
       this.form.username = "";
       this.form.email = "";
       this.form.password = "";
-      this.form.isAdmin = "";
+      //this.form.isAdmin = "";
       // Trick to reset/clear native browser form validation state
       this.show = false;
       this.$nextTick(() => {

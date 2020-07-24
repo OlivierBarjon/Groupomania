@@ -48,6 +48,23 @@ export default {
       const request = new XMLHttpRequest();
       request.open("POST", "http://localhost:3000/api/auth/signin");
       request.setRequestHeader("Content-Type", "application/json");
+      new Promise((resolve, reject) => {
+          request.onreadystatechange = function () {
+                if(this.readyState==XMLHttpRequest.DONE && this.status == 200){
+                  resolve(this.responseText)
+                } if(this.status >399) {
+                  reject();
+                  }
+              };
+      }).then((result)=>{
+          const response = JSON.parse(result);
+          localStorage.setItem("userId", JSON.stringify(response.userId));
+          localStorage.setItem("token", JSON.stringify(response.token));
+          document.location.href="/";
+
+      }).catch(()=>{
+        console.log("erreur de connexion au compte utilisateur")
+        });
       request.send(JSON.stringify(this.form));
     }
   }
