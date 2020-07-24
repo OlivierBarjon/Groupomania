@@ -1,11 +1,6 @@
 <template>
   <b-form @submit="onSubmit" @reset="onReset" v-if="show">
-    <b-form-group
-      id="input-group-1"
-      label="Title:"
-      label-for="input-1"
-      label-cols-sm="auto"
-    >
+    <b-form-group id="input-group-1" label="Titre :" label-for="input-1" label-cols-sm="auto">
       <b-form-input
         id="input-1"
         v-model="form.title"
@@ -16,27 +11,31 @@
     </b-form-group>
 
     <b-form-group id="input-group-2" label="Votre texte :" label-for="input-2" label-cols-sm="auto">
-      <b-form-input
+      <b-form-textarea
         id="input-2"
         v-model="form.text"
         type="text"
         required
-        placeholder="Votre article"
-      ></b-form-input>
+        placeholder="Votre texte ici"
+        rows ="8"
+        max-rows="20"
+      ></b-form-textarea>
     </b-form-group>
 
-    <b-form-group id="input-group-3" label="Mot de passe :" label-for="input-3" label-cols-sm="auto">
-      <b-form-input
-        id="input-3"
-        v-model="form.password"
-        type="password"
-        required
-        placeholder="Votre mot de passe"
-      ></b-form-input>
-    </b-form-group>
+<b-form-group id="input-group-3" label="Ajouter une image :" label-for="input-3" labels-cols-sm="auto" label-size="sm">
+  <b-form-file
+      v-model="form.file"
+      :state="Boolean(file)"
+      placeholder="Choisissez une image au format .jpg ou .png..."
+      drop-placeholder="Drop file here..."
+      accept=".jpg, .jpeg, .png, .gif"
+      size="sm"
+    ></b-form-file>
+</b-form-group>
+ 
 
-    <b-button type="submit" variant="dark">Envoyer</b-button>
-    <b-button type="reset" variant="danger">Effacer</b-button>
+    <b-button type="submit" variant="outline-dark">Envoyer</b-button>
+    <b-button type="reset" variant="outline-danger" >Effacer</b-button>
   </b-form>
 </template>
 
@@ -47,36 +46,36 @@ export default {
       form: {
         title: "",
         text: "",
-        password: ""
+        file: null,
       },
-      show: true
+      show: true,
     };
   },
   methods: {
     onSubmit(evt) {
       evt.preventDefault();
       const request = new XMLHttpRequest();
-      request.open("POST", "http://localhost:3000/api/auth/signup");
+      request.open("POST", "http://localhost:3000/api/article/");
       request.setRequestHeader("Content-Type", "application/json");
       request.send(JSON.stringify(this.form));
     },
     onReset(evt) {
       evt.preventDefault();
       // Reset our form values
-      this.form.username = "";
-      this.form.email = "";
-      this.form.password = "";
-      this.form.isAdmin = "";
+      this.form.title = "";
+      this.form.text = "";
+      this.form.file = null;
       // Trick to reset/clear native browser form validation state
       this.show = false;
       this.$nextTick(() => {
         this.show = true;
       });
-    }
-  }
+    },
+  },
 };
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
+
 </style>
