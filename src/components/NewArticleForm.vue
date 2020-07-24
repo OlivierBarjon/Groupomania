@@ -47,6 +47,7 @@ export default {
         title: "",
         text: "",
         file: null,
+        userId: JSON.parse(localStorage.getItem('userId'))
       },
       show: true,
     };
@@ -57,6 +58,7 @@ export default {
       const request = new XMLHttpRequest();
       request.open("POST", "http://localhost:3000/api/article/");
       request.setRequestHeader("Content-Type", "application/json");
+      request.setRequestHeader('Authorization', 'Bearer ' + JSON.parse(localStorage.getItem('token')));
       request.send(JSON.stringify(this.form));
     },
     onReset(evt) {

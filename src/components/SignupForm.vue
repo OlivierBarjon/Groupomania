@@ -69,6 +69,22 @@ export default {
       const request = new XMLHttpRequest();
       request.open("POST", "http://localhost:3000/api/auth/signup");
       request.setRequestHeader("Content-Type", "application/json");
+      new Promise((resolve, reject) => {
+          request.onreadystatechange = function () {
+                if(this.readyState==XMLHttpRequest.DONE && this.status == 201){
+                  resolve(this.responseText)
+                } if(this.status >399) {
+                  reject();
+                  }
+              };
+      }).then((result)=>{ 
+          const response = JSON.parse(result);
+          console.log(response);
+          document.location.href="/";
+
+      }).catch(()=>{
+        console.log("erreur d'enregistrement d'un nouvel utilisateur")
+        });
       request.send(JSON.stringify(this.form));
     },
     onReset(evt) {
