@@ -24,14 +24,13 @@
           <b-navbar-nav class="ml-auto">
             <b-nav-item-dropdown right>
               <!-- Using 'button-content' slot -->
-              <template v-slot:button-content>
-                Utilisateur
-              </template>
+              <template v-slot:button-content>Utilisateur</template>
               <b-dropdown-item>
-                <router-link to="/signin">Se connecter</router-link>
+                <button v-if="localStorage.length>1" v-on:click="deconnect">Se déconnecter</button>
+                <router-link v-else to="/signin">Se connecter</router-link>
               </b-dropdown-item>
               <b-dropdown-item>
-                <router-link to="/signup">S'inscrire</router-link>
+                <router-link v-if="localStorage.length<=1" to="/signup">S'inscrire</router-link>
               </b-dropdown-item>
             </b-nav-item-dropdown>
           </b-navbar-nav>
@@ -44,6 +43,21 @@
   </div>
 </template>
 
+<script>
+export default {
+  data() {
+    return {
+      localStorage
+    }
+  },
+  methods: {
+    deconnect() {
+      localStorage.clear();
+      window.history.go(0)
+    }
+  }
+}
+</script>
 
 <style lang="scss">
 
