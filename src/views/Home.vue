@@ -3,6 +3,9 @@
     <b-row align-v="center">
       <b-col><Information msg="Bienvenue chez Grouporama" /></b-col>
     </b-row>
+    <b-row align-v="center">
+      <b-col><p>Votre réseau social</p></b-col>
+    </b-row>
   </b-container>
 </template>
 

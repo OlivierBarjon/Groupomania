@@ -7,6 +7,7 @@
         type="email"
         required
         placeholder="Votre adresse Email"
+        pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
       ></b-form-input>
     </b-form-group>
 
@@ -24,7 +25,7 @@
         placeholder="Votre mot de passe"
       ></b-form-input>
     </b-form-group>
-
+    <p class="form__message">{{message}}</p>
     <p></p>
     <b-button type="submit" variant="dark">Connexion</b-button>
   </b-form>
@@ -37,9 +38,10 @@ export default {
     return {
       form: {
         email: "",
-        password: ""
+        password: "",
       },
-      show: true
+      show: true,
+      message: "",
     };
   },
   methods: {
@@ -49,29 +51,36 @@ export default {
       request.open("POST", "http://localhost:3000/api/auth/signin");
       request.setRequestHeader("Content-Type", "application/json");
       new Promise((resolve, reject) => {
-          request.onreadystatechange = function () {
-                if(this.readyState==XMLHttpRequest.DONE && this.status == 200){
-                  resolve(this.responseText)
-                } if(this.status >399) {
-                  reject();
-                  }
-              };
-      }).then((result)=>{
+        request.onreadystatechange = function () {
+          if (this.readyState == XMLHttpRequest.DONE && this.status == 200) {
+            resolve(this.responseText);
+          }
+          if (this.status > 399) {
+            reject();
+          }
+        };
+      })
+        .then((result) => {
           const response = JSON.parse(result);
           localStorage.setItem("userId", JSON.stringify(response.userId));
           localStorage.setItem("token", JSON.stringify(response.token));
-          document.location.href="/";
-
-      }).catch(()=>{
-        console.log("erreur de connexion au compte utilisateur")
+          document.location.href = "/";
+        })
+        .catch(() => {
+          console.log("compte utilisateur introuvable");
+          this.message = "Email ou/et mot de passe incorrect(s)";
         });
       request.send(JSON.stringify(this.form));
-    }
-  }
+    },
+  },
 };
 </script>
 
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
+.form__message {
+  font-style: bold;
+  color: rgb(255, 4, 4);
+}
 </style>

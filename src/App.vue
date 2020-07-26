@@ -12,7 +12,7 @@
 
         <b-collapse id="nav-collapse" is-nav>
           <b-navbar-nav class="ml-auto">
-            <b-nav-item>
+            <b-nav-item v-if="localStorage.length>1">
               <router-link to="/new-article">Poster un article</router-link>
             </b-nav-item>
             <b-nav-item>
