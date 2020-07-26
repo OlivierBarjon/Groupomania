@@ -4,7 +4,7 @@
       <b-col><TitrePage msg="Bienvenue chez Groupomania" /></b-col>
     </b-row>
     <b-row align-v="center">
-      <b-col><p>Votre réseau social</p></b-col>
+      <b-col><p>Votre réseau social de partage de Gif animés</p></b-col>
     </b-row>
   </b-container>
 </template>

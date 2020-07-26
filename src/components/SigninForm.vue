@@ -26,6 +26,7 @@
       ></b-form-input>
     </b-form-group>
     <p class="form__message">{{message}}</p>
+    <p class="form__message-red">{{messageErreur}}</p>
     <p></p>
     <b-button class="button" type="submit" variant="dark">Connexion</b-button>
   </b-form>
@@ -42,6 +43,7 @@ export default {
       },
       show: true,
       message: "",
+      messageErreur: "",
     };
   },
   methods: {
@@ -64,11 +66,15 @@ export default {
           const response = JSON.parse(result);
           localStorage.setItem("userId", JSON.stringify(response.userId));
           localStorage.setItem("token", JSON.stringify(response.token));
-          document.location.href = "/";
+          this.message =
+            "Connexion réussie, vous allez être redirigé automatiquement vers la page d'accueil";
+          setTimeout(function () {
+            document.location.href = "/";
+          }, 3000);
         })
         .catch(() => {
           console.log("compte utilisateur introuvable");
-          this.message = "Email ou/et mot de passe incorrect(s)";
+          this.messageErreur = "Email ou/et mot de passe incorrect(s)";
         });
       request.send(JSON.stringify(this.form));
     },
@@ -81,7 +87,10 @@ export default {
 <style scoped lang="scss">
 .form__message {
   font-style: bold;
-  color: rgb(255, 4, 4);
+  color: rgb(3, 143, 3);
+  &-red {
+    color: rgb(255, 4, 4);
+  }
 }
 .button {
   margin: 1rem;

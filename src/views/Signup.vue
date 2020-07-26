@@ -22,7 +22,7 @@ export default {
   },
   methods: {
     setInscription(payload) {
-      alert(payload.username);///////////////////// REQUETE ??
+      alert(payload.username);
     }
   },
 

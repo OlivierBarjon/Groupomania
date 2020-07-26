@@ -74,7 +74,7 @@ export default {
       }).then((result)=>{ 
           const response = JSON.parse(result);
           console.log(response);
-          this.message = "Votre compte a été correctement crée. Vous allez être redirigé vers la page de connexion afin de vous connecter une première fois...";
+          this.message = "Votre compte a été correctement crée. Vous allez être redirigé vers la page de connexion. Merci de vous y connecter une première fois...";
           setTimeout( function() {document.location.href="/signin"},9000);
 
       }).catch(()=>{

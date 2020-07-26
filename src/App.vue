@@ -24,12 +24,12 @@
           <b-navbar-nav class="ml-auto">
             <b-nav-item-dropdown right>
               <!-- Using 'button-content' slot -->
-              <template v-slot:button-content>Utilisateur</template>
-              <b-dropdown-item>
-                <button v-if="localStorage.length>1" v-on:click="deconnect">Se déconnecter</button>
+              <template v-slot:button-content class="nav-dropdown">Utilisateur</template>
+              <b-dropdown-item class="dropdown">
+                <b-button v-if="localStorage.length>1" v-on:click="deconnect">Se déconnecter</b-button>
                 <router-link v-else to="/signin">Se connecter</router-link>
               </b-dropdown-item>
-              <b-dropdown-item>
+              <b-dropdown-item class="dropdown">
                 <router-link v-if="localStorage.length<=1" to="/signup">S'inscrire</router-link>
               </b-dropdown-item>
             </b-nav-item-dropdown>
@@ -47,20 +47,19 @@
 export default {
   data() {
     return {
-      localStorage
-    }
+      localStorage,
+    };
   },
   methods: {
     deconnect() {
       localStorage.clear();
-      window.history.go(0)
-    }
-  }
-}
+      window.history.go(0);
+    },
+  },
+};
 </script>
 
 <style lang="scss">
-
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -74,12 +73,21 @@ export default {
 
   a {
     font-weight: lighter;
-    /* color: #ffffff; */
-
-    &.router-link-exact-active {
-      color: #ffffff;
-      /*background-color: aqua; */
+    color: #ffffff;
+    &:focus {
+      color: grey;
     }
+    &:hover {
+      background-color: #343a40;
+    }
+  }
+ 
+  ul {
+    background-color: #343a40;
+  }
+  .dropdown-menu {
+    border: 3px solid #ffc107;
+    border-radius: 0.25rem;
   }
 }
 </style>
