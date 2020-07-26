@@ -1,7 +1,7 @@
 <template>
   <b-container fluid="sm">
     <b-row align-v="center">
-      <b-col><Information msg="Bienvenue chez Grouporama" /></b-col>
+      <b-col><TitrePage msg="Bienvenue chez Groupomania" /></b-col>
     </b-row>
     <b-row align-v="center">
       <b-col><p>Votre réseau social</p></b-col>
@@ -11,12 +11,12 @@
 
 <script>
 // @ is an alias to /src
-import Information from "@/components/Information.vue";
+import TitrePage from "@/components/TitrePage.vue";
 
 export default {
   name: "Home",
   components: {
-    Information
+    TitrePage
   }
 };
 </script>

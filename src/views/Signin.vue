@@ -1,7 +1,7 @@
 <template>
   <b-container fluid="sm">
     <b-row align-v="center">
-      <b-col><Information msg="Page de connexion" /></b-col>
+      <b-col><TitrePage msg="Connectez-vous" /></b-col>
     </b-row>
     <b-row align-v="center">
       <b-col><SigninForm /></b-col>
@@ -12,13 +12,13 @@
 
 <script>
 // @ is an alias to /src
-import Information from '@/components/Information.vue'
+import TitrePage from '@/components/TitrePage.vue'
 import SigninForm from '@/components/SigninForm'
 
 export default {
   name: 'Signin',
   components: {
-    Information,
+    TitrePage,
     SigninForm
   }
 }

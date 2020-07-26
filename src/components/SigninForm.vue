@@ -27,7 +27,7 @@
     </b-form-group>
     <p class="form__message">{{message}}</p>
     <p></p>
-    <b-button type="submit" variant="dark">Connexion</b-button>
+    <b-button class="button" type="submit" variant="dark">Connexion</b-button>
   </b-form>
 </template>
 
@@ -82,5 +82,8 @@ export default {
 .form__message {
   font-style: bold;
   color: rgb(255, 4, 4);
+}
+.button {
+  margin: 1rem;
 }
 </style>

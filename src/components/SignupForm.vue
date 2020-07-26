@@ -4,7 +4,7 @@
       id="input-group-1"
       label="Email:"
       label-for="input-1"
-      description="Nous ne partagerons votre adresse mail avec personne.."
+      description="Nous ne partagerons votre adresse mail avec personne."
       label-cols-sm="auto"
     >
       <b-form-input
@@ -13,6 +13,7 @@
         type="email"
         required
         placeholder="Votre Email"
+        pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
       ></b-form-input>
     </b-form-group>
 
@@ -23,30 +24,23 @@
         type="text"
         required
         placeholder="Votre nom d'utilisateur ou votre pseudo"
+        pattern="[A-Za-z0-1éè]{2,}"
       ></b-form-input>
     </b-form-group>
 
-    <b-form-group id="input-group-3" label="Mot de passe :" label-for="input-3" label-cols-sm="auto">
+    <b-form-group id="input-group-3" label="Mot de passe :" label-for="input-3" description="4 caractères minimum (chiffres et lettres uniquement)" label-cols-sm="auto">
       <b-form-input
         id="input-3"
         v-model="form.password"
         type="password"
         required
         placeholder="Votre mot de passe"
+        pattern="[A-Za-z0-9]{4,}"
       ></b-form-input>
     </b-form-group>
-
-    <!-- <b-form-group id="input-group-4" label="" label-for="input-4">
-      <b-form-checkbox
-        id="input-4"
-        v-model="form.isAdmin"
-        value="true"
-        unchecked-value="false"
-      >Cochez la case ci-contre si vous souhaitez être modérateur</b-form-checkbox>
-    </b-form-group> -->
-
-    <b-button type="submit" variant="dark">Inscription</b-button>
-    <b-button type="reset" variant="danger">Effacer</b-button>
+    <p class="form__message">{{message}}</p>
+    <b-button class="button" type="submit" variant="dark">Inscription</b-button>
+    <b-button class="button-reset" type="reset" variant="danger" size="sm">Effacer</b-button>
   </b-form>
 </template>
 
@@ -57,10 +51,10 @@ export default {
       form: {
         email: "",
         username: "",
-        password: ""/* ,
-        isAdmin: false */
+        password: ""
       },
-      show: true
+      show: true,
+      message:'',
     };
   },
   methods: {
@@ -80,7 +74,8 @@ export default {
       }).then((result)=>{ 
           const response = JSON.parse(result);
           console.log(response);
-          document.location.href="/";
+          this.message = "Votre compte a été correctement crée. Vous allez être redirigé vers la page de connexion afin de vous connecter une première fois...";
+          setTimeout( function() {document.location.href="/signin"},9000);
 
       }).catch(()=>{
         console.log("erreur d'enregistrement d'un nouvel utilisateur")
@@ -106,4 +101,14 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
+.form__message {
+  font-style: bold;
+  color: rgb(1, 126, 7);
+}
+.button {
+  margin: 1rem;
+}
+.button-reset {
+  margin-top: 0.4rem;
+}
 </style>
