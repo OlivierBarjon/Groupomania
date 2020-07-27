@@ -26,10 +26,12 @@
   <b-form-file
       v-model="form.file"
       :state="Boolean(file)"
+      type="file"
       placeholder="Choisissez une image au format .jpg ou .png..."
       drop-placeholder="Drop file here..."
       accept=".jpg, .jpeg, .png, .gif"
       size="sm"
+      required
     ></b-form-file>
     <div v-if="form.file" class="mt-2">Fichier sélectionné : {{ form.file ? form.file.name : ''}}</div>
 </b-form-group>
@@ -57,10 +59,20 @@ export default {
     onSubmit(evt) {
       evt.preventDefault();
       const request = new XMLHttpRequest();
+      const body = new FormData();
+      const image = this.form.file //new Blob([]/* , {type : "image/gif"} */);
+      const article = {
+        userId : this.form.userId,
+        title : this.form.title,
+        text : this.form.text
+      };
+      body.append("article" , JSON.stringify(article));
+      body.append("image", image);
+      console.log(this.form.file);
       request.open("POST", "http://localhost:3000/api/article/");
-      request.setRequestHeader("Content-Type", "application/json");
+      //request.setRequestHeader("Content-Type", "multipart/form-data")
       request.setRequestHeader('Authorization', 'Bearer ' + JSON.parse(localStorage.getItem('token')));
-      request.send(JSON.stringify(this.form));
+      request.send(body);
     },
     onReset(evt) {
       evt.preventDefault();
