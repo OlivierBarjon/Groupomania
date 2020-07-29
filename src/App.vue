@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <b-container fluid id="app">
     <div id="nav">
       <b-navbar toggleable="lg" type="dark" variant="dark">
         <b-navbar-brand>
@@ -13,7 +13,10 @@
         <b-collapse id="nav-collapse" is-nav>
           <b-navbar-nav class="ml-auto">
             <b-nav-item v-if="localStorage.length>1">
-              <router-link to="/new-article">Poster un article</router-link>
+              <router-link to="/new-article">Poster un nouveau Gif</router-link>
+            </b-nav-item>
+            <b-nav-item v-if="localStorage.length>1">
+              <router-link to="/all-articles">Voir tous les Gifs</router-link>
             </b-nav-item>
             <b-nav-item>
               <router-link to="/about">À propos</router-link>
@@ -40,7 +43,7 @@
 
     <!-- router-view -->
     <router-view />
-  </div>
+  </b-container>
 </template>
 
 <script>
@@ -65,11 +68,10 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  /* color: #2c3e50; */
 }
 
 #nav {
-  padding: 30px;
+  padding-top: 1.5rem;
 
   a {
     font-weight: lighter;

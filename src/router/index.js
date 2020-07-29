@@ -5,6 +5,7 @@ import Signup from '../views/Signup.vue'
 import Signin from '../views/Signin.vue'
 import About from '../views/About.vue'
 import NewArticle from '../views/NewArticle.vue'
+import AllArticles from '../views/AllArticles.vue'
 
 Vue.use(VueRouter)
 
@@ -33,6 +34,11 @@ Vue.use(VueRouter)
     path: '/new-article',
     name: 'NewArticle',
     component: NewArticle
+  },
+  {
+    path: '/all-articles',
+    name: 'AllArticles',
+    component: AllArticles
   },
 ]
 
