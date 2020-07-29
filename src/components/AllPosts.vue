@@ -13,8 +13,8 @@
       </b-row>
     </b-card>
 
-    <div class="card-footer pb-0 pt-3">
-            <jw-pagination :items="listePosts" @changePage="onChangePage" :pageSize="5"></jw-pagination>
+    <div class="mb-3">
+            <jw-pagination :items="listePosts" @changePage="onChangePage" :pageSize="5" :labels="customLabels"></jw-pagination>
     </div>
 
 
@@ -23,13 +23,22 @@
 
 <script>
 
+const customLabels = {
+  first: '<<',
+    last: '>>',
+    previous: '<',
+    next: '>'
+};
+
+
 export default {
   name: "AllPosts",
 
   data() {
     return {
       listePosts: [],
-      pageOfItems: []
+      pageOfItems: [],
+      customLabels,
     };
   },
 
