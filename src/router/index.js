@@ -3,6 +3,7 @@ import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import Signup from '../views/Signup.vue'
 import Signin from '../views/Signin.vue'
+import UserAccount from '../views/UserAccount.vue'
 import About from '../views/About.vue'
 import NewArticle from '../views/NewArticle.vue'
 import AllArticles from '../views/AllArticles.vue'
@@ -24,6 +25,11 @@ Vue.use(VueRouter)
     path: '/signin',
     name: 'Signin',
     component: Signin
+  },
+  {
+    path: '/user-account',
+    name: 'UserAccount',
+    component: UserAccount
   },
   {
     path: '/about',

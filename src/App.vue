@@ -29,6 +29,9 @@
               <!-- Using 'button-content' slot -->
               <template v-slot:button-content class="nav-dropdown">Utilisateur</template>
               <b-dropdown-item class="dropdown">
+                <router-link v-if="localStorage.length>1" to="/user-account">Mon compte</router-link>
+                </b-dropdown-item>
+                <b-dropdown-item class="dropdown">
                 <b-button v-if="localStorage.length>1" v-on:click="deconnect">Se déconnecter</b-button>
                 <router-link v-else to="/signin">Se connecter</router-link>
               </b-dropdown-item>
