@@ -59,7 +59,7 @@ export default {
   methods: {
     deconnect() {
       localStorage.clear();
-      window.history.go(0);
+      document.location.href = "/";
     },
   },
 };

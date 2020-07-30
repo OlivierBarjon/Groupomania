@@ -72,7 +72,7 @@ export default {
                 }, 3000);
               })
               .catch(() => {
-                this.messageErreur = "Un problème est survenu durant la tentative de suppression de votre compte. Merci de recommencer plus tard.";
+                this.messageErreur = "Un problème est survenu durant la tentative de suppression de ce compte. Merci de recommencer plus tard.";
               });
       request.send(JSON.stringify(this.form));
     },

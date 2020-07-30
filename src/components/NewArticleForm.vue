@@ -27,7 +27,7 @@
       v-model="form.file"
       :state="Boolean(file)"
       type="file"
-      placeholder="Choisissez une image au format .jpg ou .png..."
+      placeholder="Choisissez une image au format .jpg ou .png... max 5Mo"
       drop-placeholder="Drop file here..."
       accept=".jpg, .jpeg, .png, .gif"
       size="sm"

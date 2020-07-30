@@ -7,7 +7,9 @@
         </b-col>
         <b-col md="auto">
           <b-card-body title-tag="h2" :title="item.title">
-            <b-card-text align="left">{{item.text}}</b-card-text>
+            <b-card-text align="left">{{item.text}}<br />
+            <a v-bind:href="'article/' + item.id"> Voir en détail >></a>
+            </b-card-text>
           </b-card-body>
         </b-col>
       </b-row>

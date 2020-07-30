@@ -75,7 +75,7 @@ export default {
           const response = JSON.parse(result);
           console.log(response);
           this.message = "Votre compte a été correctement crée. Vous allez être redirigé vers la page de connexion. Merci de vous y connecter une première fois...";
-          setTimeout( function() {document.location.href="/signin"},9000);
+          setTimeout( function() {document.location.href="/signin"},7000);
 
       }).catch(()=>{
         console.log("erreur d'enregistrement d'un nouvel utilisateur")

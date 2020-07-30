@@ -7,6 +7,7 @@ import UserAccount from '../views/UserAccount.vue'
 import About from '../views/About.vue'
 import NewArticle from '../views/NewArticle.vue'
 import AllArticles from '../views/AllArticles.vue'
+import Article from '../views/Article.vue'
 
 Vue.use(VueRouter)
 
@@ -45,6 +46,11 @@ Vue.use(VueRouter)
     path: '/all-articles',
     name: 'AllArticles',
     component: AllArticles
+  },
+  {
+    path: '/article/:id',// matching de route dynamique
+    name: 'Article',
+    component: Article
   },
 ]
 
