@@ -20,7 +20,7 @@
 
 <script>
 export default {
-  name: "LastPosts",
+  name: "SelectedPosts",
   props: {
     titre: String,
     },
@@ -38,7 +38,7 @@ export default {
         headers.append("Authorization",
       "Bearer " + JSON.parse(localStorage.getItem("token")));
       const reqParams = {method:"GET", headers};
-         const apiResponse = await fetch("http://localhost:3000/api/article/home", reqParams);//helpers
+         const apiResponse = await fetch("http://localhost:3000/api/article/selection", reqParams);//helpers
          console.log(apiResponse);
          const result = await apiResponse.json();
          console.log(result);

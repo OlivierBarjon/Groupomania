@@ -65,10 +65,10 @@ async mounted() {
     //console.log(apiResponse); // TEST
     const result = await apiResponse.json();
     console.log(result); // TEST
-    this.listePosts = result.rows;
-    this.itemsCount = result.count;
-    console.log(this.listePosts);
-    console.log(this.itemsCount);
+    this.listePosts = result;
+   // this.itemsCount = result.count; // uniquement dans le cadre d'un "findAndCountAll"
+    //console.log(this.listePosts);
+    //console.log(this.itemsCount);
   },
 
   /* async mounted() {
