@@ -5,7 +5,7 @@
     <b-card :key="item.id" v-for="item in pageOfItems" no-body class="overflow-hidden my-4">
       <b-row no-gutters>
         <b-col md="6">
-          <b-card-img :src="item.file"  class="rounded-0 card__img"></b-card-img>
+          <a v-bind:href="'article/' + item.id"><b-card-img :src="item.file"  class="rounded-0 card__img"></b-card-img></a>
         </b-col>
         <b-col md="6">
           <b-card-body title-tag="h2" :title="item.title">

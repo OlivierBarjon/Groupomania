@@ -5,11 +5,12 @@
         <b-card :key="item.id" v-for="item in listePosts" no-body class="overflow-hidden my-3">
               <b-row no-gutters>
                 <b-col md="6">
-                  <b-card-img :src="item.file"  class="rounded-0 card__img"></b-card-img>
+                  <a v-bind:href="'article/' + item.id"><b-card-img :src="item.file"  class="rounded-0 card__img"></b-card-img></a>
                 </b-col>
                 <b-col md="6">
                   <b-card-body title-tag="h3" :title="item.title">
                     <b-card-text align="left">{{item.text}}</b-card-text>
+                    <p><a v-bind:href="'article/' + item.id"> PLUS D'INFOS >></a></p>
                   </b-card-body>
                 </b-col>
               </b-row>
@@ -55,5 +56,9 @@ export default {
 .card__img {
   max-height: 15rem;
   max-width: 15rem;
+}
+a {
+  font-weight: bolder;
+  color:black;
 }
 </style>
