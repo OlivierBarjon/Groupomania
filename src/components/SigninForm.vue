@@ -66,6 +66,7 @@ export default {
           const response = JSON.parse(result);
           localStorage.setItem("userId", JSON.stringify(response.userId));
           localStorage.setItem("token", JSON.stringify(response.token));
+          localStorage.setItem("isAdmin", JSON.stringify(response.isAdmin));
           this.message =
             "Connexion réussie, vous allez être redirigé automatiquement vers la page d'accueil";
           setTimeout(function () {

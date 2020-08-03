@@ -9,32 +9,35 @@
 
     <b-row>
       <b-col class="text-left mx-2">
+        <!-- Card -->
         <b-card no-body class="overflow-hidden my-4">
           <b-row no-gutters>
-            <b-col md="auto">
-              <b-card-img :src="article.file" class="rounded-0 card__img"></b-card-img>
+            <b-col md="6">
+              <b-card-img :src="article.file" class="rounded-0 card__img" img-left></b-card-img>
             </b-col>
-            <b-col md="auto">
+            <b-col md="6">
               <b-card-body>
                 <b-card-text align="left">
                   {{article.text}}
-                  <br />
+                  
                 </b-card-text>
               </b-card-body>
             </b-col>
           </b-row>
         </b-card>
+        <!-- FIN Card -->
       </b-col>
     </b-row>
 
-    <b-row align-v="center">
+    <b-row align-v="center" v-if="moderateur === 'true'">
       <b-col class="text-left mx-2">
         <!-- Bouton selection modérateur -->
+        <p class="form__message">{{message}}</p>
             <b-form @submit="onSubmit">
-              <b-form-group  label="Sélection du modérateur :">
+              <b-form-group  label="ZONE MODÉRATEUR :">
                  <b-form-radio v-if="article.selection === false" v-model="form.selected" name="Selectionner" value= true>Sélectionner</b-form-radio>
                  <b-form-radio v-if="article.selection === true"  v-model="form.selected" name="Deselectionner" value= false>Déselectionner</b-form-radio>
-                 <b-button type="submit" variant="primary">Valider ma modification</b-button>
+                 <b-button type="submit" size="sm" class="my-2">Valider</b-button>
              </b-form-group>
             </b-form>
         <!-- FIN bouton selection modérateur -->
@@ -59,7 +62,9 @@ export default {
       form: {
         userId: JSON.parse(localStorage.getItem('userId')),
         selected: '',
-      }
+      },
+      message:"",
+      moderateur: localStorage.isAdmin
     };
   },
 
@@ -78,7 +83,7 @@ export default {
     );
     const result = await apiResponse.json();
     this.article = result;
-    console.log(this.article); //TEST
+    //console.log(this.article); //TEST
   },
 
   methods : {
@@ -106,13 +111,16 @@ export default {
               .then((result) => {
                 const response = JSON.parse(result);
                 console.log(response);
+                this.message =
+                  "Modification de la sélection effectuée";
+                setTimeout(function () {
+                  history.go(0);
+                }, 1000);
               })
               .catch(() => {
                 console.log("erreur");
               });
       request.send(JSON.stringify(body));
-      console.log(JSON.stringify(body));
-      console.log(body);
     }
   }
 
@@ -120,4 +128,8 @@ export default {
 };
 </script>
 <style scoped lang="scss">
+.form__message {
+  font-style: bold;
+  color: rgb(3, 143, 3);
+}
 </style>

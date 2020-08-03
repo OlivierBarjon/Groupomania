@@ -1,28 +1,31 @@
 <template>
-  <b-col>
 
-<!-- b-card -->
+  <b-col>
+    <!-- b-card -->
     <b-card :key="item.id" v-for="item in pageOfItems" no-body class="overflow-hidden my-4">
       <b-row no-gutters>
-        <b-col md="auto">
+        <b-col md="6">
           <b-card-img :src="item.file"  class="rounded-0 card__img"></b-card-img>
         </b-col>
-        <b-col md="auto">
+        <b-col md="6">
           <b-card-body title-tag="h2" :title="item.title">
-            <b-card-text align="left">{{item.text}}<br />
-            <a v-bind:href="'article/' + item.id"> Voir en détail >></a>
+            <b-card-text align="left">
+              <p>{{item.text}}</p>
+              <p><a v-bind:href="'article/' + item.id"> PLUS D'INFOS >></a></p>
             </b-card-text>
           </b-card-body>
         </b-col>
       </b-row>
     </b-card>
+    <!-- FIN b-card -->
 
+    <!-- pagination -->
     <div class="mb-3">
             <jw-pagination :items="listePosts" @changePage="onChangePage" :pageSize="5" :labels="customLabels"></jw-pagination>
     </div>
-
-
+    <!-- FIN pagination -->
   </b-col>
+
 </template>
 
 <script>
@@ -84,5 +87,10 @@ async mounted() {
 .card__img {
   max-height: 20rem;
   max-width: 20rem;
+}
+
+a {
+  font-weight: bolder;
+  color:black;
 }
 </style>

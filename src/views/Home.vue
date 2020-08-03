@@ -1,23 +1,27 @@
 <template>
   <b-container fluid="sm">
+
     <b-row align-v="center">
       <b-col>
         <TitrePage v-if="localStorage.length>1" msg="Groupomania Gifs" />
         <TitrePage v-else msg="Bienvenue chez Groupomania" />
+        <p>Votre réseau social de partage de Gifs animés</p>
         </b-col>
     </b-row>
-    <b-row align-v="center">
-      <b-col><p>Votre réseau social de partage de Gifs animés</p></b-col>
-    </b-row>
-    <b-row align-v="center">
+
+    <b-row align-v="center" >
       <b-col>
-        <LastPosts v-if="localStorage.length>1" titre="Les derniers Gifs" />
-        <SelectedPosts v-if="localStorage.length>1" titre="La sélection du modérateur" />
+        <LastPosts class="my-5" v-if="localStorage.length>1" titre="LES DERNIERS GIFS" />
+        <SelectedPosts class="my-3" v-if="localStorage.length>1" titre="LES MEILLEURS GIFS" />
+
+        <!-- hors connexion -->
         <div class="connectHP" v-else> 
           <h2>Vous devez-être connecté pour visualiser ce contenu.<br /> Connectez-vous : </h2>
-        <SigninForm />
-        <p> Si vous ne possédez pas de compte, rendez-vous à la <a href="/signup" >rubrique inscription >></a> </p>
+          <SigninForm />
+          <p> Si vous ne possédez pas de compte, rendez-vous à la <a href="/signup" >rubrique inscription >></a> </p>
         </div>
+        <!-- FIN zone hors connexion -->
+
       </b-col>
     </b-row>
   </b-container>

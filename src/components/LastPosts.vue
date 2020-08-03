@@ -4,10 +4,10 @@
       <h2>{{ titre }}</h2>
         <b-card :key="item.id" v-for="item in listePosts" no-body class="overflow-hidden my-3">
               <b-row no-gutters>
-                <b-col md="auto">
+                <b-col md="6">
                   <b-card-img :src="item.file"  class="rounded-0 card__img"></b-card-img>
                 </b-col>
-                <b-col md="auto">
+                <b-col md="6">
                   <b-card-body title-tag="h3" :title="item.title">
                     <b-card-text align="left">{{item.text}}</b-card-text>
                   </b-card-body>
