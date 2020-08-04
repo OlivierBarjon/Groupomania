@@ -25,8 +25,6 @@ export default {
       alert(payload.username);
     }
   },
-
-  
-  
 }
+
 </script>

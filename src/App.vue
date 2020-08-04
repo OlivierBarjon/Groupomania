@@ -1,7 +1,11 @@
 <template>
+
   <b-container fluid id="app">
+
+    <!-- NAV BAR -->
     <div id="nav">
       <b-navbar toggleable="lg" type="dark" variant="dark">
+        
         <b-navbar-brand>
           <router-link to="/">
             <img alt="logo" src="./assets/logo-groupomania-light.png" />
@@ -41,12 +45,19 @@
             </b-nav-item-dropdown>
           </b-navbar-nav>
         </b-collapse>
+
       </b-navbar>
     </div>
+    <!-- FIN NAV BAR -->
 
     <!-- router-view -->
     <router-view />
+    <!-- FIN router-view -->
+
+    <div class="footer m-3"><p>Une création Connect-E - 2020 | <a href="#" >mentions légales </a>| <a href="#">contactez-nous</a></p></div>
+
   </b-container>
+
 </template>
 
 <script>
@@ -57,7 +68,7 @@ export default {
     };
   },
   methods: {
-    deconnect() {
+    deconnect() { // user logout
       localStorage.clear();
       document.location.href = "/";
     },
@@ -95,4 +106,14 @@ export default {
     border-radius: 0.25rem;
   }
 }
+
+.footer a {
+  font-weight:bold;
+  color : #000;
+  &:focus {
+    color : grey;
+  }
+
+}
+
 </style>

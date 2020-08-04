@@ -1,10 +1,10 @@
 <template>
   <b-container fluid="sm">
     <b-row align-v="center">
-      <b-col><TitrePage msg="Postez un nouvel article" /></b-col>
+      <b-col><TitrePage msg="Postez un nouveau Gif animé" /></b-col>
     </b-row>
     <b-row align-v="center">
-      <b-col><NewArticleForm @inscription="setInscription" /></b-col>
+      <b-col><NewArticleForm /></b-col>
     </b-row>
   </b-container>
 </template>
@@ -20,10 +20,10 @@ export default {
     TitrePage,
     NewArticleForm
   },
-  methods: {
+  /* methods: {///@inscription="setInscription" ///// A SUPPRIMER APRES TESTS
     setInscription(payload) {
       alert(payload.username);
     }
-  },
+  }, */
 }
 </script>

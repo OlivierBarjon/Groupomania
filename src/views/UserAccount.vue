@@ -6,11 +6,6 @@
       </b-col>
     </b-row>
     <b-row align-v="center">
-      <b-col>
-        <p>Depuis cette page, vous pouvez supprimer votre compte (tous les gifs ainsi que leurs commentaires seront également supprimés de la base de donnée de Groupomania</p>
-      </b-col>
-    </b-row>
-    <b-row align-v="center">
       <b-col><DeleteUserForm /></b-col>
     </b-row>
   </b-container>
@@ -22,10 +17,39 @@ import TitrePage from "@/components/TitrePage.vue";
 import DeleteUserForm from '@/components/DeleteUserForm.vue'
 
 export default {
+
   name: "UserAccount",
+
   components: {
     TitrePage,
     DeleteUserForm
   },
+
+  data () {
+    return {
+      //article: {},// A SUPP APRES VERIF/////////////////////////////
+      listePosts: [] ///////// PROJET EN COURS
+    }
+  },
+
+  async mounted() { //////// PROJET EN COURS
+    const headers = new Headers();
+    headers.append("Content-Type", "application/json");
+    headers.append(
+      "Authorization",
+      "Bearer " + JSON.parse(localStorage.getItem("token"))
+    );
+    const userId = JSON.parse(localStorage.getItem("userId"));
+    const reqParams = { method: "GET", headers };
+    const apiResponse = await fetch(
+      `http://localhost:3000/api/auth/getOneUser/${userId}`,
+      reqParams
+    ); //helpers
+    const result = await apiResponse.json();
+    console.log(result); // TEST //////////////////////
+    this.listePosts = result;
+
+  },
+
 };
 </script>

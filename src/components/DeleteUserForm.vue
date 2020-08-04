@@ -1,5 +1,7 @@
 <template>
   <b-form @submit="onSubmit" v-if="show" >
+    <h2 align="left">Suppression de votre compte :</h2>
+    <p align="left" class="my-4">Vous pouvez supprimer votre compte via le formulaire ci-dessous. Tous les gifs ainsi que leurs commentaires seront également supprimés de la base de donnée de Groupomania. Cette action est irréversible.</p>
     <b-form-group id="input-group-1" label="Saisissez votre Email :" label-for="input-1" label-cols-sm="auto">
       <b-form-input
         id="input-1"
@@ -50,7 +52,7 @@ export default {
     onSubmit(evt) {
       evt.preventDefault();
       const request = new XMLHttpRequest();
-      request.open("DELETE", "http://localhost:3000/api/auth/deleteuser");
+      request.open("DELETE", "http://localhost:3000/api/auth/deleteUser");
       request.setRequestHeader("Content-Type", "application/json");
       request.setRequestHeader('Authorization', 'Bearer ' + JSON.parse(localStorage.getItem('token')));
       new Promise((resolve, reject) => {

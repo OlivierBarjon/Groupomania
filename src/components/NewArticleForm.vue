@@ -6,7 +6,7 @@
         v-model="form.title"
         type="text"
         required
-        placeholder="Titre de l'article"
+        placeholder="Titre de l'image"
       ></b-form-input>
     </b-form-group>
 
@@ -16,9 +16,9 @@
         v-model="form.text"
         type="text"
         required
-        placeholder="Votre texte ici"
-        rows ="4"
-        max-rows="10"
+        placeholder="Votre texte ici (max 255 caractères)"
+        rows ="3"
+        max-rows="5"
       ></b-form-textarea>
     </b-form-group>
 
@@ -61,7 +61,7 @@ export default {
       evt.preventDefault();
       const request = new XMLHttpRequest();
       const body = new FormData();
-      const image = this.form.file //message perso : pas de Blob !!
+      const image = this.form.file // info : pas de Blob ici !
       const article = {
         userId : this.form.userId,
         title : this.form.title,
@@ -71,9 +71,8 @@ export default {
       body.append("image", image);
       //console.log(this.form.file); //TEST
       request.open("POST", "http://localhost:3000/api/article/");
-      //request.setRequestHeader("Content-Type", "multipart/form-data") // message perso : Le forcage  des headers produits des erreurs
+      //request.setRequestHeader("Content-Type", "multipart/form-data") // info : Le forçage des headers produits des erreurs
       request.setRequestHeader('Authorization', 'Bearer ' + JSON.parse(localStorage.getItem('token')));
-      /////////////////////
       new Promise((resolve, reject) => {
               request.onreadystatechange = function () {
                 if (this.readyState == XMLHttpRequest.DONE && this.status == 201) {
@@ -94,9 +93,10 @@ export default {
               .catch(() => {
                 this.messageErreur = "Un problème est survenu durant l'envoi de votre message. Merci de recommencer plus tard.";
               });
-      /////////////////////
+
       request.send(body);
     },
+
     onReset(evt) {
       evt.preventDefault();
       // Reset our form values

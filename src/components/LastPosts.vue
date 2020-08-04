@@ -2,15 +2,17 @@
   <b-row>
     <b-col>
       <h2>{{ titre }}</h2>
-        <b-card :key="item.id" v-for="item in listePosts" no-body class="overflow-hidden my-3">
+        <b-card :key="item.id" v-for="item in listePosts" no-body class="overflow-hidden my-4">
               <b-row no-gutters>
                 <b-col md="6">
                   <a v-bind:href="'article/' + item.id"><b-card-img :src="item.file"  class="rounded-0 card__img"></b-card-img></a>
                 </b-col>
                 <b-col md="6">
                   <b-card-body title-tag="h3" :title="item.title">
-                    <b-card-text align="left">{{item.text}}</b-card-text>
-                    <p><a v-bind:href="'article/' + item.id"> PLUS D'INFOS >></a></p>
+                    <b-card-text align="left">
+                      <p><span class="commentaire__Titre">Commentaire de l'auteur :</span> <br />{{item.text}}</p>
+                      <p align="right" class="mt-5"><a v-bind:href="'article/' + item.id"> Plus de détails >></a></p>
+                      </b-card-text>
                   </b-card-body>
                 </b-col>
               </b-row>
@@ -39,10 +41,8 @@ export default {
         headers.append("Authorization",
       "Bearer " + JSON.parse(localStorage.getItem("token")));
       const reqParams = {method:"GET", headers};
-         const apiResponse = await fetch("http://localhost:3000/api/article/home", reqParams);//helpers
-         //console.log(apiResponse);//TEST
+         const apiResponse = await fetch("http://localhost:3000/api/article/home", reqParams);//helpers???????????????
          const result = await apiResponse.json();
-         //console.log(result);//TEST
          this.listePosts=result;
   }
   
@@ -53,8 +53,11 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
 .card__img {
-  max-height: 15rem;
-  max-width: 15rem;
+  max-height: 20rem;
+  max-width: 20rem;
+}
+.commentaire__Titre {
+  font-weight: bolder;
 }
 
 a {

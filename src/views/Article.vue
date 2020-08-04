@@ -18,6 +18,7 @@
             <b-col md="6">
               <b-card-body>
                 <b-card-text align="left">
+                  <span class="commentaire__Titre">Commentaire de l'auteur :</span> <br />
                   {{article.text}}
                   
                 </b-card-text>
@@ -83,10 +84,9 @@ export default {
     );
     const result = await apiResponse.json();
     this.article = result;
-    //console.log(this.article); //TEST
   },
 
-  methods : {
+  methods : { // Selection modérateur
     onSubmit(evt) {
       evt.preventDefault();
       const request = new XMLHttpRequest();
@@ -131,5 +131,8 @@ export default {
 .form__message {
   font-style: bold;
   color: rgb(3, 143, 3);
+}
+.commentaire__Titre {
+  font-weight: bolder;
 }
 </style>
