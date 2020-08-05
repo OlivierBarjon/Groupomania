@@ -6,7 +6,9 @@
       </b-col>
     </b-row>
     <b-row align-v="center">
-      <b-col><DeleteUserForm /></b-col>
+      <b-col>
+        <DeleteUserForm />
+      </b-col>
     </b-row>
   </b-container>
 </template>
@@ -25,14 +27,14 @@ export default {
     DeleteUserForm
   },
 
-  data () {
+/* ##### PROJET EVOLUTION ###### */
+  /* data () {
     return {
-      //article: {},// A SUPP APRES VERIF/////////////////////////////
-      listePosts: [] ///////// PROJET EN COURS
+      listePosts: []
     }
   },
 
-  async mounted() { //////// PROJET EN COURS
+  async mounted() { 
     const headers = new Headers();
     headers.append("Content-Type", "application/json");
     headers.append(
@@ -44,13 +46,10 @@ export default {
     const apiResponse = await fetch(
       `http://localhost:3000/api/auth/getOneUser/${userId}`,
       reqParams
-    ); //helpers
+    );
     const result = await apiResponse.json();
-    console.log(result); // TEST //////////////////////
     this.listePosts = result;
-
-  },
+  }, */
 
 };
-
 </script>

@@ -17,28 +17,34 @@
         type="text"
         required
         placeholder="Votre texte ici (max 255 caractères)"
-        rows ="3"
+        rows="3"
         max-rows="5"
       ></b-form-textarea>
     </b-form-group>
 
-<b-form-group id="input-group-3" label="Ajouter une image :" label-for="input-3" labels-cols-sm="auto" label-size="sm">
-  <b-form-file
-      v-model="form.file"
-      :state="Boolean(file)"
-      type="file"
-      placeholder="Choisissez une image au format .jpg ou .png... max 5Mo"
-      drop-placeholder="Drop file here..."
-      accept=".jpg, .jpeg, .png, .gif"
-      size="sm"
-      required
-    ></b-form-file>
-    <div v-if="form.file" class="mt-2">Fichier sélectionné : {{ form.file ? form.file.name : ''}}</div>
-</b-form-group>
+    <b-form-group
+      id="input-group-3"
+      label="Ajouter une image :"
+      label-for="input-3"
+      labels-cols-sm="auto"
+      label-size="sm"
+    >
+      <b-form-file
+        v-model="form.file"
+        :state="Boolean(file)"
+        type="file"
+        placeholder="Choisissez une image au format .jpg ou .png... max 5Mo"
+        drop-placeholder="Drop file here..."
+        accept=".jpg, .jpeg, .png, .gif"
+        size="sm"
+        required
+      ></b-form-file>
+      <div v-if="form.file" class="mt-2">Fichier sélectionné : {{ form.file ? form.file.name : ''}}</div>
+    </b-form-group>
     <p class="form__message-red">{{messageErreur}}</p>
     <p class="form__message">{{message}}</p>
     <b-button class="button" type="submit" variant="dark">Envoyer</b-button>
-    <b-button class="button-reset" size="sm" type="reset" variant="danger" >Effacer</b-button>
+    <b-button class="button-reset" size="sm" type="reset" variant="danger">Effacer</b-button>
   </b-form>
 </template>
 
@@ -47,52 +53,57 @@ export default {
   data() {
     return {
       form: {
-        userId: JSON.parse(localStorage.getItem('userId')),
+        userId: JSON.parse(localStorage.getItem("userId")),
         title: "",
         text: "",
-        file: null
+        file: null,
       },
       show: true,
-      message:"",
+      message: "",
     };
   },
+
   methods: {
     onSubmit(evt) {
       evt.preventDefault();
       const request = new XMLHttpRequest();
       const body = new FormData();
-      const image = this.form.file // info : pas de Blob ici !
+      const image = this.form.file; // info : pas de Blob ici !
       const article = {
-        userId : this.form.userId,
-        title : this.form.title,
-        text : this.form.text
+        userId: this.form.userId,
+        title: this.form.title,
+        text: this.form.text,
       };
-      body.append("article" , JSON.stringify(article));
+      body.append("article", JSON.stringify(article));
       body.append("image", image);
       //console.log(this.form.file); //TEST
       request.open("POST", "http://localhost:3000/api/article/");
-      //request.setRequestHeader("Content-Type", "multipart/form-data") // info : Le forçage des headers produits des erreurs
-      request.setRequestHeader('Authorization', 'Bearer ' + JSON.parse(localStorage.getItem('token')));
+      //request.setRequestHeader("Content-Type", "multipart/form-data") // info : Le forçage des headers ici produits des erreurs
+      request.setRequestHeader(
+        "Authorization",
+        "Bearer " + JSON.parse(localStorage.getItem("token"))
+      );
       new Promise((resolve, reject) => {
-              request.onreadystatechange = function () {
-                if (this.readyState == XMLHttpRequest.DONE && this.status == 201) {
-                  resolve(this.responseText);
-                }
-                if (this.status > 399) {
-                  reject();
-                }
-              };
-            })
-              .then(() => {
-                this.message =
-                  "Votre image Gif et son commentaire sont enregistrés. Vous allez être redirigé vers la page d'accueil dans quelques instants";
-                setTimeout(function () {
-                  document.location.href = "/";
-                }, 3000);
-              })
-              .catch(() => {
-                this.messageErreur = "Un problème est survenu durant l'envoi de votre message. Merci de recommencer plus tard.";
-              });
+        request.onreadystatechange = function () {
+          if (this.readyState == XMLHttpRequest.DONE && this.status == 201) {
+            resolve(this.responseText);
+          }
+          if (this.status > 399) {
+            reject();
+          }
+        };
+      })
+        .then(() => {
+          this.message =
+            "Votre image Gif et son commentaire sont enregistrés. Vous allez être redirigé vers la page d'accueil dans quelques instants";
+          setTimeout(function () {
+            document.location.href = "/";
+          }, 3000);
+        })
+        .catch(() => {
+          this.messageErreur =
+            "Un problème est survenu durant l'envoi de votre message. Merci de recommencer plus tard.";
+        });
 
       request.send(body);
     },

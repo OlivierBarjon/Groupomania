@@ -1,5 +1,4 @@
 <template>
-
   <b-container fluid id="app">
 
     <!-- NAV BAR -->
@@ -57,7 +56,6 @@
     <div class="footer m-3"><p>Une création Connect-E - 2020 | <a href="#" >mentions légales </a>| <a href="#">contactez-nous</a></p></div>
 
   </b-container>
-
 </template>
 
 
@@ -82,7 +80,6 @@ export default {
 
 <style lang="scss">
 /* BLOC PRINCIPAL */
-
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;

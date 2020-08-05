@@ -6,8 +6,7 @@
     <b-row align-v="center">
       <b-col><SigninForm /></b-col>
     </b-row>
-  </b-container>
-  
+  </b-container> 
 </template>
 
 <script>
@@ -22,5 +21,4 @@ export default {
     SigninForm
   }
 }
-
 </script>

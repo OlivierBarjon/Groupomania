@@ -17,10 +17,8 @@
 </template>
 
 <script>
-
 import TitrePage from "@/components/TitrePage.vue";
 import AllPosts from "@/components/AllPosts.vue";
-
 
 export default {
   name: "AllArticles",
@@ -29,6 +27,5 @@ export default {
     AllPosts
     },
 };
-
 </script>
 

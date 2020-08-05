@@ -35,6 +35,7 @@
 <script>
 export default {
   name: "Signin-form",
+
   data() {
     return {
       form: {
@@ -46,6 +47,7 @@ export default {
       messageErreur: "",
     };
   },
+
   methods: {
     onSubmit(evt) {
       evt.preventDefault();
@@ -71,7 +73,7 @@ export default {
             "Connexion réussie, vous allez être redirigé automatiquement vers la page d'accueil";
           setTimeout(function () {
             document.location.href = "/";
-          }, 3000);
+          }, 3000); // redirection automatique vers la page d'accueil
         })
         .catch(() => {
           console.log("compte utilisateur introuvable");

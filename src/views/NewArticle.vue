@@ -20,11 +20,5 @@ export default {
     TitrePage,
     NewArticleForm
   },
-  /* methods: {///@inscription="setInscription" ///// A SUPPRIMER APRES TESTS
-    setInscription(payload) {
-      alert(payload.username);
-    }
-  }, */
 }
-
 </script>
