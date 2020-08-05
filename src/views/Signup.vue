@@ -4,7 +4,7 @@
       <b-col><TitrePage msg="Inscrivez-vous" /></b-col>
     </b-row>
     <b-row align-v="center">
-      <b-col><SignupForm @inscription="setInscription" /></b-col>
+      <b-col><SignupForm /></b-col>
     </b-row>
   </b-container>
 </template>
@@ -19,11 +19,6 @@ export default {
   components: {
     TitrePage,
     SignupForm
-  },
-  methods: {
-    setInscription(payload) {
-      alert(payload.username);
-    }
   },
 }
 </script>
