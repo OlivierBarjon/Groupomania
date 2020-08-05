@@ -9,8 +9,11 @@
                 </b-col>
                 <b-col md="6">
                   <b-card-body title-tag="h3" :title="item.title">
-                    <b-card-text align="left"><span class="commentaire__Titre">Commentaire de l'auteur :</span> <br />{{item.text}}</b-card-text>
-                    <p align="right" class="mt-5"><a v-bind:href="'article/' + item.id"> Plus de détails >></a></p>
+                    <b-card-text align="left">
+                      <p><span class="commentaire__Titre">Commentaire de l'auteur :</span> <br />{{item.text}}</p>
+                      <p class="card__auteur">Posté par {{item.User.username}}</p>
+                      <p align="right" class="mt-5"><a v-bind:href="'article/' + item.id"> Plus de détails >></a></p>
+                    </b-card-text>
                   </b-card-body>
                 </b-col>
               </b-row>
@@ -59,6 +62,9 @@ export default {
 }
 .commentaire__Titre {
   font-weight: bolder;
+}
+.card__auteur {
+  font-style: italic;
 }
 a {
   font-weight: bolder;

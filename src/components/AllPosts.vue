@@ -10,7 +10,8 @@
         <b-col md="6">
           <b-card-body title-tag="h2" :title="item.title">
             <b-card-text align="left">
-              <p><span class="commentaire__Titre">Commentaire de l'auteur :</span> <br />{{item.text}}</p>
+              <p><span class="commentaire__Titre">Commentaire de {{item.User.username}} :</span> <br />{{item.text}}</p>
+              <p class="card__auteur">Posté par {{item.User.username}}</p>
               <p align="right" class="mt-5"><a v-bind:href="'article/' + item.id"> Plus de détails >></a></p>
             </b-card-text>
           </b-card-body>
@@ -87,6 +88,10 @@ async mounted() {
 
 .commentaire__Titre {
   font-weight: bolder;
+}
+
+.card__auteur {
+  font-style: italic;
 }
 
 a {

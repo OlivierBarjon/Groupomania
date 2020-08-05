@@ -20,7 +20,7 @@
                 <b-card-text align="left">
                   <span class="commentaire__Titre">Commentaire de l'auteur :</span> <br />
                   {{article.text}}
-                  <div align="right" class="mt-5"><p>Posté par : {{article.User.username}}</p></div>
+                  <div align="right" class="mt-5"><p class="card__auteur">Posté par : {{article.User.username}}</p></div>
                 </b-card-text>
               </b-card-body>
             </b-col>
@@ -134,5 +134,9 @@ export default {
 }
 .commentaire__Titre {
   font-weight: bolder;
+}
+
+.card__auteur {
+  font-style: italic;
 }
 </style>
