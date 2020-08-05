@@ -68,7 +68,7 @@ export default {
       );
       new Promise((resolve, reject) => {
         request.onreadystatechange = function () {
-          if (this.readyState == XMLHttpRequest.DONE && this.status == 200) {
+          if (this.readyState == XMLHttpRequest.DONE && this.status >= 200 && this.status <= 300) {
             resolve(this.responseText);
           }
           if (this.status > 399) {
