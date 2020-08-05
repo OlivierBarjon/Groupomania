@@ -13,7 +13,7 @@
         <b-card no-body class="overflow-hidden my-4">
           <b-row no-gutters>
             <b-col md="6">
-              <b-card-img :src="article.file" class="rounded-0 card__img" img-left></b-card-img>
+              <b-card-img :src="article.file"  class="rounded-0 card__img" img-left :alt="article.title"></b-card-img>
             </b-col>
             <b-col md="6">
               <b-card-body>
@@ -127,16 +127,4 @@ export default {
 
 };
 </script>
-<style scoped lang="scss">
-.form__message {
-  font-style: bold;
-  color: rgb(3, 143, 3);
-}
-.commentaire__Titre {
-  font-weight: bolder;
-}
 
-.card__auteur {
-  font-style: italic;
-}
-</style>

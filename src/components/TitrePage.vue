@@ -13,10 +13,9 @@ export default {
 }
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped lang="scss">
+
+<style scoped lang="scss"> // "scoped" attribute to limit CSS to this component only
 h1 {
   margin: 1.5rem;
 }
-
 </style>

@@ -55,7 +55,7 @@ Vue.use(VueRouter)
 ]
 
 const router = new VueRouter({
-  mode:'history', // supprime le #
+  mode:'history', // supprime le # dans les urls
   routes
 })
 

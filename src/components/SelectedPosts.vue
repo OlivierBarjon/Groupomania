@@ -5,7 +5,7 @@
         <b-card :key="item.id" v-for="item in listePosts" no-body class="overflow-hidden my-3">
               <b-row no-gutters>
                 <b-col md="6">
-                  <a v-bind:href="'article/' + item.id"><b-card-img :src="item.file"  class="rounded-0 card__img"></b-card-img></a>
+                  <a v-bind:href="'article/' + item.id"><b-card-img :src="item.file"  class="rounded-0 card__img" :alt="item.title"></b-card-img></a>
                 </b-col>
                 <b-col md="6">
                   <b-card-body title-tag="h3" :title="item.title">
@@ -53,21 +53,3 @@ export default {
 
 }
 </script>
-
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped lang="scss">
-.card__img {
-  max-height: 20rem;
-  max-width: 20rem;
-}
-.commentaire__Titre {
-  font-weight: bolder;
-}
-.card__auteur {
-  font-style: italic;
-}
-a {
-  font-weight: bolder;
-  color:black;
-}
-</style>

@@ -60,6 +60,8 @@
 
 </template>
 
+
+
 <script>
 export default {
   data() {
@@ -76,7 +78,11 @@ export default {
 };
 </script>
 
+
+
 <style lang="scss">
+/* BLOC PRINCIPAL */
+
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -84,9 +90,10 @@ export default {
   text-align: center;
 }
 
+/* MENU PRINCIPAL */
+
 #nav {
   padding-top: 1.5rem;
-
   a {
     font-weight: lighter;
     color: #ffffff;
@@ -97,7 +104,6 @@ export default {
       background-color: #343a40;
     }
   }
- 
   ul {
     background-color: #343a40;
   }
@@ -107,13 +113,47 @@ export default {
   }
 }
 
-.footer a {
-  font-weight:bold;
-  color : #000;
+
+/* CARD */
+
+.card__img {
+  max-height: 20rem;
+  max-width: 20rem;
+}
+
+.commentaire__Titre {
+  font-weight: bolder;
+}
+
+.card__auteur {
+  font-style: italic;
+}
+
+/* ELEMENTS DE FORMULAIRES */
+
+.form__message {
+  font-style: bold;
+  color: rgb(3, 143, 3);
+  &-red {
+    color: rgb(255, 4, 4);
+  }
+}
+
+.button {
+  margin: 1rem;
+  &-reset {
+    margin-top: 0.4rem;
+  }
+}
+
+
+/* STYLES GENERIQUES */
+
+a {
+  font-weight: bolder;
+  color:black;
   &:focus {
     color : grey;
   }
-
 }
-
 </style>

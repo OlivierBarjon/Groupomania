@@ -17,6 +17,7 @@
 </template>
 
 <script>
+
 import TitrePage from "@/components/TitrePage.vue";
 import AllPosts from "@/components/AllPosts.vue";
 
@@ -28,8 +29,6 @@ export default {
     AllPosts
     },
 };
+
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped lang="scss">
-</style>

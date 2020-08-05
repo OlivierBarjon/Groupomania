@@ -112,20 +112,3 @@ export default {
   },
 };
 </script>
-
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped lang="scss">
-.button {
-  margin: 1rem;
-}
-.button-reset {
-  margin-top: 0.4rem;
-}
-.form__message {
-  font-style: bold;
-  color: rgb(3, 143, 3);
-  &-red {
-    color: rgb(255,4,4);
-  }
-}
-</style>
