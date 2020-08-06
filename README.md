@@ -4,9 +4,9 @@ OC - Projet 7 - frontend
 
 ## Project setup
 1- CLONER CE DEPOT
-https://github.com/OlivierBarjon/Groupomania.git
+git clone https://github.com/OlivierBarjon/Groupomania.git
 
-2- INSTALLEZ LES DEPENDANCES :
+2- INSTALLEZ LES DEPENDANCES (dans le nouveau répertoire crée) :
 npm install
 
 3- RECUPERE LE SUBMODULE ("Groupomania API)

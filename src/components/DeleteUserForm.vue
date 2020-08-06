@@ -86,7 +86,7 @@ export default {
         })
         .catch(() => {
           this.messageErreur =
-            "Un problème est survenu durant la tentative de suppression de ce compte. Merci de recommencer plus tard.";
+            "Tous vos Gifs et vos commentaires ont été supprimés. Merci de confirmer la suppression de votre compte.";
         });
       request.send(JSON.stringify(this.form));
     },
