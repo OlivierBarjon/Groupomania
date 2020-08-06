@@ -3,24 +3,20 @@
 OC - Projet 7 - frontend
 
 ## Project setup
-```
-npm install
-```
 
-### Compiles and hot-reloads for development
-```
+1- INSTALLEZ LES DEPENDANCES :
+npm install
+
+2- COMMANDE LANCEMENT SERVEUR :
 npm run serve
-```
+
+http://localhost:8080/
+
+3- INSTALLEZ ET LANCER GROUPOMANIA API :
+Ouvrir le fichier README du submodule "Groupomania API" pour la suite de la procédure.
+
 
 ### Compiles and minifies for production
 ```
 npm run build
 ```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
