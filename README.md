@@ -8,6 +8,7 @@ git clone https://github.com/OlivierBarjon/Groupomania.git
 
 2- INSTALLEZ LES DEPENDANCES (dans le nouveau répertoire crée) :
 npm install
+(les mettre à jour si besoin) 
 
 3- RECUPERE LE SUBMODULE ("Groupomania API)
 git clone --recurse-submodules https://github.com/OlivierBarjon/Groupomania-API.git
