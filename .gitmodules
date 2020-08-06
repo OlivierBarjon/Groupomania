@@ -1,0 +1,3 @@
+[submodule "Groupomania-API"]
+	path = Groupomania-API
+	url = https://github.com/OlivierBarjon/Groupomania-API.git
